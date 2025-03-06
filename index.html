@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Cheat Sheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/src/github-svgrepo-com.svg">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Navbar -->
+    <nav class=" w-full px-4 py-2 mx-auto bg-white shadow-md rounded-md lg:px-8 lg:py-3">
+        <div class="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
+            <a href="#" class="mr-4 block cursor-pointer py-1.5 text-base text-slate-800 font-semibold">
+                <i class="fa-brands fa-github-alt"></i> GitSheet
+            </a>
+
+            <div class="hidden lg:block">
+                <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+                    <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+
+                        <a href="#" class="flex items-center hover:text-[#5d3fd3]">
+                            Home
+                        </a>
+                    </li>
+                    <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                        <a href="#commands" class="flex items-center hover:text-[#5d3fd3]">
+                            Commands
+                        </a>
+                    </li>
+                    <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                        <a href="#about" class="flex items-center hover:text-[#5d3fd3]">
+                            About-us
+                        </a>
+                    </li>
+                    <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                        <a href="#contributors" class="flex items-center hover:text-[#5d3fd3]">
+                            Contributors
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button
+                class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
+                type="button">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative text-white overflow-hidden  ">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="absolute inset-0 bg-cover bg-center "
+            style="background-image: url('https://www.leadsnextech.com/_next/static/media/bg.153fe1e6.jpg'); filter: brightness(0.4);">
+        </div>
+
+        <div class="container mx-auto lg:px-12 px-5 py-24 md:py-32 relative z-10 lg:h-[90vh]">
+            <div class="flex flex-col md:flex-row items-center justify-around">
+                <div class="w-full md:w-1/2 mb-12 md:mb-0 relative">
+                    <h1 class="text-3xl md:text-[3.5rem] font-bold mb-6 leading-tight ">
+                        NAVIGATE THE UNIVERSE OF
+                        <br />
+                        <span
+                            class="bg-gradient-to-r from-[#5d3fd3] via-green-400 to-[#5d3fd3] inline-block text-transparent bg-clip-text">
+                            VERSION CONTROL
+                        </span>
+                    </h1>
+
+                    <p class="text-xl mb-5 text-gray-300 ">
+                        Unlock the Power of Version Control with Git & GitHub
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 ">
+                        <button class="group relative w-full sm:w-auto px-6 py-3 min-w-[160px]">
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#5d3fd3] to-cyan-600 rounded-lg"></div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-lg lg:blur-md blur-0 group-hover:opacity-60 transition-opacity duration-500">
+                            </div>
+                            <div class="relative flex items-center justify-center gap-2">
+                                <span class="text-white font-medium">Get Started</span>
+                                <svg class="w-5 h-5 text-white transform group-hover:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </div>
+                        </button>
+
+                        <a href="./src/git-cheat-sheet-education.pdf" download="./src/git-cheat-sheet-education.pdf">
+                            <button
+                                class="w-full sm:w-auto px-6 py-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-lg text-white/70 hover:bg-white/10 hover:text-white transition-all min-w-[160px]">
+                                Download
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="w-full md:w-2/5 md:pl-12 ">
+                    <div
+                        class="bg-white bg-opacity-10 backdrop-filter md:backdrop-blur-lg relative  rounded-xl p-8 shadow-2xl">
+                        <h2 class="text-2xl font-semibold mb-6">Why Choose Us?</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <span>Never lose your project history again</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                    </path>
+                                </svg>
+                                <span>Work together with developers across the globe</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-purple-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+                                    </path>
+                                </svg>
+                                <span>Show your projects directly on GitHub </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                    fill="white" />
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- Git Commands Section -->
+    <section id="commands" class="container mx-auto p-10">
+        <h3 class="text-3xl font-bold mb-6 text-center">Git Commands</h3>
+        <div id="commandList" class="bg-white shadow p-6 rounded-lg"></div>
+    </section>
+
+    <!-- About -->
+    <section class="text-center py-10 bg-gray-100" id="about">
+        <h2 class="text-3xl font-bold text-[#5d3fd3] mb-4">About Us</h2>
+        <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+            Welcome to <strong>Forange X</strong>! 🚀
+            We are a growing tech community dedicated to empowering students and startups by providing <strong>Web
+                Development</strong>, <strong>App Development</strong>, <strong>Software Solutions</strong>, and
+            <strong>Tech Mentorship</strong>.
+            <br /><br />
+            Our goal is to help students build <strong>industry-level projects</strong> through: <br>
+            <span class="text-[#5d3fd3] font-semibold"> Final Year Project Support</span>,
+            <span class="text-[#5d3fd3] font-semibold"> Career Guidance</span>, and
+            <span class="text-[#5d3fd3] font-semibold"> Hands-on Workshops</span>.
+            <br /><br />
+            We believe in <strong>learning by doing</strong> and supporting future tech innovators. Join our journey to
+            upgrade your skills and become a part of our growing community.
+        </p>
+        <div class="mt-6">
+            <a href="https://forangex.bio.link" target="_blank"
+                class="px-6 py-3 rounded-lg bg-[#5d3fd3] text-white hover:bg-[#5d3fd9] transition-all">
+                Join Forange X
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- Contributors Section -->
+    <section id="contributors" class="text-center py-10 bg-gray-100">
+        <h3 class="text-3xl font-bold mb-4">Contributors</h3>
+        <ul id="contributors-list" class="flex flex-wrap justify-center gap-6"></ul>
+    </section>
+
+    <!-- FAQ -->
+    <div class="py-24 px-8 max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
+        <div class="flex flex-col text-left basis-1/2">
+            <p class="inline-block font-semibold text-primary mb-4">Tech Startup FAQ</p>
+            <p class="sm:text-4xl text-3xl font-extrabold text-base-content">Frequently Asked Questions</p>
+        </div>
+        <ul class="basis-1/2">
+            <li>
+                <button
+                    class="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10"
+                    aria-expanded="false" onclick="toggleFAQ(this)">
+                    <span class="flex-1 text-base-content">What services does our tech startup provide?</span>
+                    <svg class="flex-shrink-0 w-4 h-4 ml-auto fill-current" viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect y="7" width="16" height="2" rx="1"
+                            class="transform origin-center transition duration-200 ease-out"></rect>
+                        <rect y="7" width="16" height="2" rx="1"
+                            class="transform origin-center rotate-90 transition duration-200 ease-out"></rect>
+                    </svg>
+                </button>
+                <div class="transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+                    <div class="pb-5 leading-relaxed">
+                        <div class="space-y-2 leading-relaxed">We provide web development, app development, digital
+                            marketing, project consultation, and software solutions for small businesses and startups.
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <button
+                    class="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10"
+                    aria-expanded="false" onclick="toggleFAQ(this)">
+                    <span class="flex-1 text-base-content">How do we support startups and tech enthusiasts?</span>
+                    <svg class="flex-shrink-0 w-4 h-4 ml-auto fill-current" viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect y="7" width="16" height="2" rx="1"
+                            class="transform origin-center transition duration-200 ease-out"></rect>
+                        <rect y="7" width="16" height="2" rx="1"
+                            class="transform origin-center rotate-90 transition duration-200 ease-out"></rect>
+                    </svg>
+                </button>
+                <div class="transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+                    <div class="pb-5 leading-relaxed">
+                        <div class="space-y-2 leading-relaxed">We offer internships, mentorship programs, learning
+                            resources, and real-world project implementations to help tech enthusiasts gain hands-on
+                            experience.</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <button
+                    class="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10"
+                    aria-expanded="false" onclick="toggleFAQ(this)">
+                    <span class="flex-1 text-base-content">Do we provide certification after internships?</span>
+                    <svg class="flex-shrink-0 w-4 h-4 ml-auto fill-current" viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect y="7" width="16" height="2" rx="1"
+                            class="transform origin-center transition duration-200 ease-out"></rect>
+                        <rect y="7" width="16" height="2" rx="1"
+                            class="transform origin-center rotate-90 transition duration-200 ease-out"></rect>
+                    </svg>
+                </button>
+                <div class="transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+                    <div class="pb-5 leading-relaxed">
+                        <div class="space-y-2 leading-relaxed">Yes, we provide a certificate of completion after
+                            successfully completing the internship along with project implementation.</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <footer class="w-full py-14">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <a href="https://forangex.bio.link/" target="_blank"
+                    class="flex justify-center items-center gap-2 text-[#5d3fd3] text-2xl font-semibold hover:text-purple-800 transition-all duration-300">
+                    <i class="fa-brands fa-github-alt text-3xl"></i>
+                    GitSheet
+                </a>
+                <ul
+                    class="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-16 mb-10 border-b border-gray-200">
+                    <li><a href="#" class="text-gray-800 hover:text-gray-900">Home</a></li>
+                    <li><a href="#" class=" text-gray-800 hover:text-gray-900">Commands</a></li>
+                    <li><a href="#" class=" text-gray-800 hover:text-gray-900">About us</a></li>
+                    <li><a href="#" class=" text-gray-800 hover:text-gray-900">Contributors</a></li>
+                    <li><a href="#" class=" text-gray-800 hover:text-gray-900">FAQ</a></li>
+                </ul>
+                <div class="flex space-x-10 justify-center items-center mb-14">
+                    <a href="https://x.com/forange_x" class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 ">
+                        <svg class="w-[1.688rem] h-[1.688rem]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="none">
+                            <path
+                                d="M11.3214 8.93666L16.4919 3.05566H15.2667L10.7772 8.16205L7.1914 3.05566H3.05566L8.47803 10.7774L3.05566 16.9446H4.28097L9.022 11.552L12.8088 16.9446H16.9446L11.3211 8.93666H11.3214ZM9.64322 10.8455L9.09382 10.0765L4.72246 3.95821H6.60445L10.1322 8.8959L10.6816 9.66481L15.2672 16.083H13.3852L9.64322 10.8458V10.8455Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/forange_x" class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 ">
+                        <svg class="w-[1.688rem] h-[1.688rem] " viewBox="0 0 29 29" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.76556 14.8811C9.76556 12.3243 11.8389 10.2511 14.3972 10.2511C16.9555 10.2511 19.03 12.3243 19.03 14.8811C19.03 17.4379 16.9555 19.5111 14.3972 19.5111C11.8389 19.5111 9.76556 17.4379 9.76556 14.8811ZM7.26117 14.8811C7.26117 18.82 10.456 22.0129 14.3972 22.0129C18.3385 22.0129 21.5333 18.82 21.5333 14.8811C21.5333 10.9422 18.3385 7.7493 14.3972 7.7493C10.456 7.7493 7.26117 10.9422 7.26117 14.8811ZM20.1481 7.46652C20.148 7.79616 20.2457 8.11843 20.4288 8.39258C20.6119 8.66674 20.8723 8.88046 21.177 9.00673C21.4817 9.133 21.8169 9.16614 22.1405 9.10196C22.464 9.03778 22.7612 8.87916 22.9945 8.64617C23.2278 8.41318 23.3868 8.11627 23.4513 7.79299C23.5157 7.46972 23.4829 7.13459 23.3568 6.83C23.2307 6.5254 23.017 6.26502 22.7428 6.08178C22.4687 5.89853 22.1463 5.80065 21.8164 5.80052H21.8158C21.3737 5.80073 20.9497 5.9763 20.637 6.28867C20.3243 6.60104 20.1485 7.02467 20.1481 7.46652ZM8.78274 26.1863C7.42782 26.1246 6.69138 25.8991 6.20197 25.7085C5.55314 25.4561 5.0902 25.1554 4.60346 24.6696C4.11672 24.1839 3.81543 23.7216 3.56395 23.0732C3.37317 22.5843 3.14748 21.8481 3.08588 20.494C3.01851 19.03 3.00506 18.5902 3.00506 14.8812C3.00506 11.1722 3.01962 10.7336 3.08588 9.26841C3.14759 7.9143 3.37495 7.17952 3.56395 6.68919C3.81654 6.04074 4.11739 5.57808 4.60346 5.09163C5.08953 4.60519 5.55203 4.30408 6.20197 4.05274C6.69116 3.86208 7.42782 3.63652 8.78274 3.57497C10.2476 3.50763 10.6877 3.49419 14.3972 3.49419C18.1068 3.49419 18.5473 3.50874 20.0134 3.57497C21.3683 3.63663 22.1035 3.86385 22.5941 4.05274C23.243 4.30408 23.7059 4.60585 24.1926 5.09163C24.6794 5.57741 24.9796 6.04074 25.2322 6.68919C25.4229 7.17808 25.6486 7.9143 25.7102 9.26841C25.7776 10.7336 25.7911 11.1722 25.7911 14.8812C25.7911 18.5902 25.7776 19.0287 25.7102 20.494C25.6485 21.8481 25.4217 22.5841 25.2322 23.0732C24.9796 23.7216 24.6787 24.1843 24.1926 24.6696C23.7066 25.155 23.243 25.4561 22.5941 25.7085C22.105 25.8992 21.3683 26.1247 20.0134 26.1863C18.5485 26.2536 18.1084 26.2671 14.3972 26.2671C10.686 26.2671 10.2472 26.2536 8.78274 26.1863ZM8.66768 1.0763C7.18823 1.14363 6.17729 1.37808 5.29443 1.72141C4.3801 2.07597 3.60608 2.55163 2.83262 3.32341C2.05916 4.09519 1.58443 4.86997 1.22966 5.78374C0.88612 6.66663 0.651535 7.67641 0.584162 9.15497C0.515676 10.6359 0.5 11.1093 0.5 14.8811C0.5 18.6529 0.515676 19.1263 0.584162 20.6072C0.651535 22.0859 0.88612 23.0955 1.22966 23.9784C1.58443 24.8916 2.05927 25.6673 2.83262 26.4387C3.60597 27.2102 4.3801 27.6852 5.29443 28.0407C6.17896 28.3841 7.18823 28.6185 8.66768 28.6859C10.1502 28.7532 10.6232 28.77 14.3972 28.77C18.1713 28.77 18.645 28.7543 20.1268 28.6859C21.6063 28.6185 22.6166 28.3841 23.5 28.0407C24.4138 27.6852 25.1884 27.2105 25.9618 26.4387C26.7353 25.667 27.209 24.8916 27.5648 23.9784C27.9083 23.0955 28.144 22.0857 28.2103 20.6072C28.2777 19.1252 28.2933 18.6529 28.2933 14.8811C28.2933 11.1093 28.2777 10.6359 28.2103 9.15497C28.1429 7.6763 27.9083 6.66608 27.5648 5.78374C27.209 4.87052 26.7341 4.09641 25.9618 3.32341C25.1896 2.55041 24.4138 2.07597 23.5011 1.72141C22.6166 1.37808 21.6062 1.14252 20.1279 1.0763C18.6461 1.00897 18.1724 0.992188 14.3983 0.992188C10.6243 0.992188 10.1502 1.00785 8.66768 1.0763Z"
+                                fill="currentColor" />
+                        </svg>
+
+                    </a>
+                    <a href="https://facebook.com/forange_x" class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 ">
+                        <svg class="w-[0.938rem] h-[1.625rem]" viewBox="0 0 15 26" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.7926 14.4697L14.5174 9.86889H10.0528V6.87836C10.0528 5.62033 10.6761 4.39105 12.6692 4.39105H14.7275V0.473179C13.5289 0.282204 12.3177 0.178886 11.1037 0.164062C7.42917 0.164062 5.0302 2.37101 5.0302 6.36077V9.86889H0.957031V14.4697H5.0302V25.5979H10.0528V14.4697H13.7926Z"
+                                fill="currentColor" />
+                        </svg>
+
+                    </a>
+                    <a href="https://youtube.com/@forange_x" class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 ">
+                        <svg class="w-[1.875rem] h-[1.375rem]" viewBox="0 0 30 22" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M26.3106 1.27838C27.5782 1.62071 28.5745 2.61957 28.9113 3.88573C29.524 6.18356 29.524 10.9809 29.524 10.9809C29.524 10.9809 29.524 15.7782 28.9113 18.076C28.5698 19.3469 27.5735 20.3457 26.3106 20.6834C24.0186 21.2977 14.8226 21.2977 14.8226 21.2977C14.8226 21.2977 5.63122 21.2977 3.33456 20.6834C2.06695 20.3411 1.07063 19.3422 0.73385 18.076C0.121094 15.7782 0.121094 10.9809 0.121094 10.9809C0.121094 10.9809 0.121094 6.18356 0.73385 3.88573C1.07531 2.61488 2.07162 1.61602 3.33456 1.27838C5.63122 0.664062 14.8226 0.664062 14.8226 0.664062C14.8226 0.664062 24.0186 0.664062 26.3106 1.27838ZM19.5234 10.9809L11.885 15.403V6.55872L19.5234 10.9809Z"
+                                fill="currentColor" />
+                        </svg>
+
+                    </a>
+                </div>
+                <span class="text-lg text-gray-500 text-center block">©<a href="https://pagedone.io/"> forangex</a>
+                    2025,
+                    All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // contributors list
+        async function fetchContributors() {
+            const response = await fetch('https://api.github.com/repos/forangex/git-github/contributors');
+            const contributors = await response.json();
+            const list = document.getElementById('contributors-list');
+
+            contributors.forEach(contributor => {
+                const li = document.createElement('li');
+                li.className = 'flex flex-col items-center';
+
+                const img = document.createElement('img');
+                img.src = contributor.avatar_url;
+                img.alt = contributor.login;
+                img.className = 'w-20 h-20 rounded-full border-4 border-[#5d3fd3] shadow-lg mb-2';
+
+                const name = document.createElement('span');
+                name.textContent = contributor.login;
+                name.className = 'font-semibold text-lg';
+
+                li.appendChild(img);
+                li.appendChild(name);
+                list.appendChild(li);
+            });
+        }
+
+        fetchContributors();
+
+        // commands
+        document.addEventListener("DOMContentLoaded", function () {
+            const commands = [
+                { cmd: "git init", desc: "Initialize a new git repository" },
+                { cmd: "git clone", desc: "Clone an existing repository" },
+                { cmd: "git add .", desc: "Stage all changes" },
+                { cmd: "git commit -m 'message'", desc: "Commit changes with a message" },
+                { cmd: "git status", desc: "Show the working directory status" },
+                { cmd: "git push", desc: "Push local changes to the remote repository" },
+                { cmd: "git pull", desc: "Fetch and merge changes from the remote repository" },
+                { cmd: "git checkout branch_name", desc: "Switch to another branch" },
+                { cmd: "git merge branch_name", desc: "Merge another branch into the current branch" },
+                { cmd: "git branch", desc: "List, create, or delete branches" },
+                { cmd: "git log", desc: "Show the commit history" },
+                { cmd: "git diff", desc: "Show changes between commits or the working directory" }
+            ];
+
+            const container = document.getElementById("commandList");
+            container.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4";
+
+            commands.forEach(({ cmd, desc }) => {
+                const cmdBox = document.createElement("div");
+                cmdBox.className = "flex flex-col text-gray-800 border border-gray-800 bg-white font-mono text-sm p-4 rounded-md";
+                cmdBox.innerHTML = `
+      <div class="flex items-center justify-between">
+        <div class="flex gap-1">
+          <span>$</span>
+          <span>${cmd}</span>
+        </div>
+        <span class="cursor-pointer hover:text-gray-400 duration-200" onclick="copyToClipboard('${cmd}')">
+          <i class="fa-regular fa-copy"></i>
+        </span>
+      </div>
+      <p class="text-xs text-gray-600 mt-2">${desc}</p>
+    `;
+                container.appendChild(cmdBox);
+            });
+
+            window.copyToClipboard = function (text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert(`Copied: ${text}`);
+                });
+            };
+        });
+
+        // faq
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            button.setAttribute("aria-expanded", button.getAttribute("aria-expanded") === "false" ? "true" : "false");
+            content.style.maxHeight = button.getAttribute("aria-expanded") === "true" ? content.scrollHeight + "px" : "0";
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
